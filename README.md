@@ -1,51 +1,39 @@
-# 🚀 API REST - Sistema de Gestão de Vendas e Afiliados
+# 🏦 Mini-API de Transações Bancárias
 
-[![Java](https://img.shields.io/badge/Java-17%2B-orange?logo=openjdk)](https://www.oracle.com/java/)
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen?logo=springboot)](https://spring.io/projects/spring-boot)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15%2B-blue?logo=postgresql)](https://www.postgresql.org/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
-API RESTful completa desenvolvida para gerenciamento de produtos, vendas e comissões de afiliados. O projeto foi construído seguindo arquitetura em camadas, boas práticas de Domain-Driven Design (DDD) simplificado, tratamento global de exceções e persistência de dados.
+Uma API RESTful desenvolvida com Spring Boot para simulação de operações bancárias (Depósitos, Saques e Transferências), focada no cumprimento das propriedades ACID e tratamento transacional de dados.
 
 ---
 
-## 📌 Funcionalidades
+## 📌 Regras de Negócio e Funcionalidades
 
-- [x] **Gestão de Produtos:** Cadastro, atualização, listagem com paginação e exclusão de produtos.
-- [x] **Gestão de Afiliados:** Registro e controle de perfil de afiliados.
-- [x] **Processamento de Vendas:** Registro de transações com cálculo automático de comissão.
-- [x] **Consultas Personalizadas:** Filtros avançados com *Derived Queries* e JPQL para relatórios de desempenho.
-- [x] **Tratamento de Exceções:** Respostas padronizadas no formato RFC 7807 (`CustomExceptionHandler`).
-- [x] **Validação de Dados:** Garantia da integridade das requisições com *Bean Validation*.
+- [x] **Gestão de Clientes:** Cadastro e vinculação de clientes a contas.
+- [x] **Gestão de Contas:** Abertura e alteração de status (ATIVA/INATIVA).
+- [ ] **Operações Financeiras:**
+    - Depósitos e Saques com validação de saldo.
+    - Transferências entre contas com garantia de Rollback em caso de erro (`@Transactional`).
+- [ ] **Tratamento de Exceções:** Retorno de erros padronizados (RFC 7807) para saldos insuficientes ou contas inativas.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-* **Linguagem:** Java 17
-* **Framework:** Spring Boot 3
-* **Acesso a Dados:** Spring Data JPA / Hibernate
-* **Banco de Dados:** PostgreSQL (Produção/Dev) e H2 Database (Testes)
-* **Documentação:** OpenAPI 3 / Swagger UI
-* **Mapeamento:** MapStruct / ModelMapper
-* **Automação de Código:** Lombok
-* **Gerenciador de Dependências:** Maven
+- **Linguagem:** Java 17+
+- **Framework:** Spring Boot 3+
+- **Persistência de Dados:** Spring Data JPA / Hibernate
+- **Banco de Dados:** PostgreSQL
+- **Utilitários:** Lombok
+- **Gerenciador de Dependências:** Maven
 
 ---
 
-## 🏗️ Arquitetura do Projeto
+## 🚀 Como Executar o Projeto
 
-```text
-src/
-├── main/
-│   ├── java/com/dev/projetovendas/
-│   │   ├── config/          # Configurações da aplicação (Swagger, CORS)
-│   │   ├── controller/      # Camada Web (Endpoints REST)
-│   │   ├── dto/             # Data Transfer Objects (Request/Response)
-│   │   ├── exception/       # Handler global e exceções personalizadas
-│   │   ├── model/           # Entidades JPA (ORM)
-│   │   ├── repository/      # Interfaces Spring Data JPA
-│   │   └── service/         # Regras de negócio e serviços
-│   └── resources/
-│       ├── application.properties
-│       └── db/migration/    # Scripts SQL para migração
+### Pré-requisitos
+- Java 17 ou superior instalado
+- PostgreSQL rodando localmente
+- Maven
+
+### Passos
+1. Clone o repositório:
+   ```bash
+   git clone [https://github.com/seu-usuario/mini-api-transacoes-bancarias.git](https://github.com/seu-usuario/mini-api-transacoes-bancarias.git)
