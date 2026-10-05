@@ -28,7 +28,7 @@ public class Transacao {
     private LocalDateTime dataHora;
 
     @ManyToOne
-    @JoinColumn(name = "transacao_id", nullable = false)
+    @JoinColumn(name = "conta_id", nullable = false)
     private Conta conta;
 
     @Enumerated(EnumType.STRING)
