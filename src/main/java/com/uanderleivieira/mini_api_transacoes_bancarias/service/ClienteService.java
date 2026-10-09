@@ -4,6 +4,7 @@ import com.uanderleivieira.mini_api_transacoes_bancarias.dto.ClienteRequestDTO;
 import com.uanderleivieira.mini_api_transacoes_bancarias.dto.ClienteResponseDTO;
 import com.uanderleivieira.mini_api_transacoes_bancarias.model.Cliente;
 import com.uanderleivieira.mini_api_transacoes_bancarias.repository.ClienteRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ public class ClienteService {
 
     private final ClienteRepository clienteRepository;
 
+    @Transactional
     public ClienteResponseDTO cadastrar(ClienteRequestDTO dto) {
 
         if(clienteRepository.existsByCpf(dto.cfp())) {
