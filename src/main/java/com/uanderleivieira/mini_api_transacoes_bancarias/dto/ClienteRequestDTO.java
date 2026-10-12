@@ -11,7 +11,7 @@ public record ClienteRequestDTO(
 
         @NotBlank(message = "O CPF é obrigatório")
         @CPF(message = "Formato de CPF inválido")
-        String cfp,
+        String cpf,
 
         @NotBlank(message = "O e-mail é obrigatório")
         @Email(message = "Formato de e-mail inválido")

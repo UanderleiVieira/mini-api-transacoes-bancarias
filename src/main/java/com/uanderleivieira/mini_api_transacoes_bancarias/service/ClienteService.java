@@ -17,7 +17,7 @@ public class ClienteService {
     @Transactional
     public ClienteResponseDTO cadastrar(ClienteRequestDTO dto) {
 
-        if(clienteRepository.existsByCpf(dto.cfp())) {
+        if(clienteRepository.existsByCpf(dto.cpf())) {
             //IllegalArgumentException usado por enquanto
             throw new IllegalArgumentException("Já existe um cliente cadastrado com este CPF");
         }
@@ -28,7 +28,7 @@ public class ClienteService {
 
         Cliente cliente = new Cliente();
         cliente.setNome(dto.nome());
-        cliente.setCpf(dto.cfp());
+        cliente.setCpf(dto.cpf());
         cliente.setEmail(dto.email());
 
         Cliente clienteNovo = clienteRepository.save(cliente);
