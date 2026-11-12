@@ -14,8 +14,8 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class ContaService {
 
-    private ContaRepository contaRepository;
-    private ClienteRepository clienteRepository;
+    private final ContaRepository contaRepository;
+    private final ClienteRepository clienteRepository;
 
     @Transactional
     public ContaResponseDTO abrirConta(ContaRequestDTO dto) {
