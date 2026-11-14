@@ -14,8 +14,8 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class ContaService {
 
-    private ContaRepository contaRepository;
-    private ClienteRepository clienteRepository;
+    private  ContaRepository contaRepository;
+    private  ClienteRepository clienteRepository;
 
     @Transactional
     public ContaResponseDTO abrirConta(ContaRequestDTO dto) {
@@ -46,7 +46,7 @@ public class ContaService {
         String numero;
         do {
             numero = String.format("%06d",(int) (Math.random() * 1000000));
-        } while (clienteRepository.existsByNumero(numero));
+        } while (contaRepository.existsByNumero(numero));
 
         return numero;
     }
